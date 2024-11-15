@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+        }
+        nav a {
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+        }
+        nav a:hover {
+            background-color: #333;
+        }
+        .content {
+            padding: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+        form {
+            background-color: white;
+            padding: 20px;
+            max-width: 500px;
+            margin: 20px auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Custom alert box styling */
+        #customAlert {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 2px solid red;
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            z-index: 1000;
+        }
+
+        #customAlert .alert-message {
+            color: red;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        #customAlert button {
+            background: none;
+            color: blue;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Our Competition!</h1>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#register">Register</a>
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#rules">Rules</a>
+    </nav>
+
+    <!-- Main Content Section -->
+    <div class="content">
+        <!-- Home Section -->
+        <section id="home">
+            <h2>About the Competition</h2>
+            <p>Every year, our organization holds a competition to encourage innovation, teamwork, and originality...</p>
+        </section>
+
+        <!-- Registration Form -->
+        <section id="register">
+            <h2>Register Now</h2>
+            <form id="registrationForm" action="submit_registration.php" method="POST">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="team">Team Name (Optional)</label>
+                <input type="text" id="team" name="team">
+
+                <button type="submit">Submit Registration</button>
+            </form>
+            </form>
+
+            <!-- Custom Alert Message Box -->
+            <div id="customAlert">
+                <div class="alert-message">Warning: Disclosure of Confidential Information.</div>
+                <p>You've entered confidential information. Please ensure no proprietary, financial, or personal information is shared. Avoid exposing internal information without required authority. Protect sensitive data.</p>
+                <button onclick="closeAlert()">Close</button>
+            </div>
+        </section>
+
+           <!-- Leaderboard Section -->
+           <section id="leaderboard">
+            <h2>Leaderboard</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Khalid Mohammed</td>
+                        <td>98</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Sara Ahmed</td>
+                        <td>95</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Rules Section -->
+        <section id="rules">
+            <h2>Competition Rules</h2>
+            <ol>
+                <li>Teams of no more than 5 people are allowed.</li>
+                <li>By the deadline, participants must turn in their entries.</li>
+                <li>Plagiarism of any kind will result in instant disqualification.</li>
+                <li>Every participant needs to use a working organizational email address when registering.</li>
+                <li>The rewards that will be given to the winners will be revealed at the start of the competition.</li>
+            </ol>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Company's Competition. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            // Show the custom alert box
+            document.getElementById("customAlert").style.display = "block";
+        });
+
+        function closeAlert() {
+            document.getElementById("customAlert").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
+
